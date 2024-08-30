@@ -70,7 +70,7 @@ struct TicTacToeScreenView: View {
                   let x = offset + gridLineWidth * (iD - 0.5) + ((gridWidth - 2.0 * offset - (columnsD - 1.0) * gridLineWidth) / columnsD) * iD
                   path.move(to: CGPoint(x: x, y: y1))
                   path.addLine(to: CGPoint(x: x, y: y2))
-                }
+                }  
               }
             }
             .stroke(.blue, lineWidth: gridLineWidth)
