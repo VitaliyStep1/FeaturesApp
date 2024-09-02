@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046009A02C8455B20088958C /* TicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0460099F2C8455B10088958C /* TicCellView.swift */; };
+		046009A22C8455CF0088958C /* TicCellEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046009A12C8455CF0088958C /* TicCellEnum.swift */; };
 		0465F4F52C806E30003DA1E7 /* TicFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F4F42C806E30003DA1E7 /* TicFieldView.swift */; };
 		04863AFF2C7E0D6F00AE4EAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04863AFE2C7E0D6F00AE4EAA /* Constants.swift */; };
 		04C968C52C78DBBE001AA3D5 /* FeaturesAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C968C42C78DBBE001AA3D5 /* FeaturesAppApp.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0460099F2C8455B10088958C /* TicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCellView.swift; sourceTree = "<group>"; };
+		046009A12C8455CF0088958C /* TicCellEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCellEnum.swift; sourceTree = "<group>"; };
 		0465F4F42C806E30003DA1E7 /* TicFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicFieldView.swift; sourceTree = "<group>"; };
 		04863AFE2C7E0D6F00AE4EAA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04C968C12C78DBBE001AA3D5 /* FeaturesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeaturesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +44,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0460099D2C8455850088958C /* TicTacToe */ = {
+			isa = PBXGroup;
+			children = (
+				04C968D62C78E048001AA3D5 /* TicTacToeScreenView.swift */,
+				0465F4F42C806E30003DA1E7 /* TicFieldView.swift */,
+				0460099E2C84559A0088958C /* TicCellView */,
+			);
+			path = TicTacToe;
+			sourceTree = "<group>";
+		};
+		0460099E2C84559A0088958C /* TicCellView */ = {
+			isa = PBXGroup;
+			children = (
+				0460099F2C8455B10088958C /* TicCellView.swift */,
+				046009A12C8455CF0088958C /* TicCellEnum.swift */,
+			);
+			path = TicCellView;
+			sourceTree = "<group>";
+		};
 		04C968B82C78DBBE001AA3D5 = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +86,7 @@
 				04C968C42C78DBBE001AA3D5 /* FeaturesAppApp.swift */,
 				04C968D22C78DCDB001AA3D5 /* SplashScreenView.swift */,
 				04C968D42C78DDDD001AA3D5 /* MainScreenView.swift */,
-				04C968D62C78E048001AA3D5 /* TicTacToeScreenView.swift */,
-				0465F4F42C806E30003DA1E7 /* TicFieldView.swift */,
+				0460099D2C8455850088958C /* TicTacToe */,
 				04C968C82C78DBBF001AA3D5 /* Assets.xcassets */,
 				04C968CA2C78DBBF001AA3D5 /* Preview Content */,
 			);
@@ -151,10 +173,12 @@
 			files = (
 				0465F4F52C806E30003DA1E7 /* TicFieldView.swift in Sources */,
 				04C968C52C78DBBE001AA3D5 /* FeaturesAppApp.swift in Sources */,
+				046009A22C8455CF0088958C /* TicCellEnum.swift in Sources */,
 				04C968D32C78DCDB001AA3D5 /* SplashScreenView.swift in Sources */,
 				04C968D52C78DDDD001AA3D5 /* MainScreenView.swift in Sources */,
 				04863AFF2C7E0D6F00AE4EAA /* Constants.swift in Sources */,
 				04C968D72C78E048001AA3D5 /* TicTacToeScreenView.swift in Sources */,
+				046009A02C8455B20088958C /* TicCellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
