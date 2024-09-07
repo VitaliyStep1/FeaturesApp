@@ -1,5 +1,5 @@
 //
-//  TicTacToeScreenView.swift
+//  TicScreenView.swift
 //  FeaturesApp
 //
 //  Created by Vitaliy Stepanenko on 23.08.2024.
@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct TicTacToeScreenView: View {
+struct TicScreenView: View {
+  @StateObject private var viewModel = TicScreenViewModel()
   let rows: Int
   
   var body: some View {
@@ -28,5 +29,5 @@ struct TicTacToeScreenView: View {
 }
 
 #Preview {
-  TicTacToeScreenView(rows: 3)
+  TicScreenView(rows: 3)
 }

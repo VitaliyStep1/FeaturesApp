@@ -18,7 +18,7 @@ struct MainScreenView: View {
       }
       // navigationDestination(isPresented should be inside NavigationStack block
       .navigationDestination(isPresented: $isTicTacToeScreenPresented) {
-        TicTacToeScreenView(rows: 3)
+        TicScreenView(rows: 3)
       }
     }
   }

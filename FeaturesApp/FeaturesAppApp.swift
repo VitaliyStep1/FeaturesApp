@@ -8,7 +8,7 @@
 import SwiftUI
 enum LaunchWithScreenEnum {
   case production
-  case debugTicTacToeScreenView
+  case debugTicScreenView
 }
 
 @main
@@ -19,8 +19,8 @@ struct FeaturesAppApp: App {
       switch Constants.launchWithScreenEnum {
       case .production:
         SplashScreenView()
-      case .debugTicTacToeScreenView:
-        TicTacToeScreenView(rows: 3)
+      case .debugTicScreenView:
+        TicScreenView(rows: 3)
       }
     }
   }

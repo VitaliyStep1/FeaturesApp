@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-  static let launchWithScreenEnum: LaunchWithScreenEnum = .debugTicTacToeScreenView
+  static let launchWithScreenEnum: LaunchWithScreenEnum = .debugTicScreenView
 }
