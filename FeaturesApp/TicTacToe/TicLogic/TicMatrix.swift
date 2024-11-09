@@ -1,5 +1,5 @@
 //
-//  SMatrix.swift
+//  TicMatrix.swift
 //  FeaturesApp
 //
 //  Created by Vitaliy Stepanenko on 05.09.2024.
@@ -8,7 +8,7 @@
 import Foundation
 
 // Only for square matrix
-struct SMatrix<T: Equatable> {
+struct TicMatrix<T: Equatable> {
   let n: Int
   private(set) var values: [[T?]] = []
   private var rows: Int {
@@ -38,7 +38,7 @@ struct SMatrix<T: Equatable> {
     }
   }
   
-  func takeLinesCoordinatesWithSameValues() -> [[Coordinate]] {
+  func takeLinesCoordinatesWithSameValues() -> [[TicCoordinate]] {
     let values = self.values
     let possibleLinesCoordinates = takePossibleLinesCoordinates(n: n)
     let linesCoordinates = possibleLinesCoordinates.filter { lineCoordinates in
@@ -51,43 +51,43 @@ struct SMatrix<T: Equatable> {
     return true
   }
   
-  private func takePossibleLinesCoordinates(n: Int) -> [[Coordinate]] {
+  private func takePossibleLinesCoordinates(n: Int) -> [[TicCoordinate]] {
     let rows = n
     let columns = n
-    var possibleLinesCoordinates: [[Coordinate]] = []
+    var possibleLinesCoordinates: [[TicCoordinate]] = []
     for row in 0..<rows {
-      var lineCoordinates: [Coordinate] = []
+      var lineCoordinates: [TicCoordinate] = []
       for column in 0..<columns {
-        lineCoordinates.append(Coordinate(row: row, column: column))
+        lineCoordinates.append(TicCoordinate(row: row, column: column))
       }
       possibleLinesCoordinates.append(lineCoordinates)
     }
     
     for column in 0..<columns {
-      var lineCoordinates: [Coordinate] = []
+      var lineCoordinates: [TicCoordinate] = []
       for row in 0..<rows {
-        lineCoordinates.append(Coordinate(row: row, column: column))
+        lineCoordinates.append(TicCoordinate(row: row, column: column))
       }
       possibleLinesCoordinates.append(lineCoordinates)
     }
     
-    var lineCoordinates: [Coordinate] = []
+    var lineCoordinates: [TicCoordinate] = []
     for row in 0..<rows {
       let column = row
-      lineCoordinates.append(Coordinate(row: row, column: column))
+      lineCoordinates.append(TicCoordinate(row: row, column: column))
     }
     possibleLinesCoordinates.append(lineCoordinates)
     
     lineCoordinates = []
     for row in 0..<rows {
       let column = columns - 1 - row
-      lineCoordinates.append(Coordinate(row: row, column: column))
+      lineCoordinates.append(TicCoordinate(row: row, column: column))
     }
     possibleLinesCoordinates.append(lineCoordinates)
     return possibleLinesCoordinates
   }
   
-  private func isLineContainsOnlySameValues(lineCoordinates: [Coordinate], values: [[T?]]) -> Bool {
+  private func isLineContainsOnlySameValues(lineCoordinates: [TicCoordinate], values: [[T?]]) -> Bool {
     if lineCoordinates.count > 1 {
       let firstCoordinate = lineCoordinates[0]
       let firstValue = takeValue(values: values, coordinate: firstCoordinate)
@@ -107,7 +107,7 @@ struct SMatrix<T: Equatable> {
     return true
   }
   
-  private func takeValue(values: [[T?]], coordinate: Coordinate) -> T? {
+  private func takeValue(values: [[T?]], coordinate: TicCoordinate) -> T? {
     let row = coordinate.row
     let column = coordinate.column
     let value = values[safe: row]?[safe: column] ?? nil

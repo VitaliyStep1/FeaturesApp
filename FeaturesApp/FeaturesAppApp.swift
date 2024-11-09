@@ -6,10 +6,6 @@
 //
 
 import SwiftUI
-enum LaunchWithScreenEnum {
-  case production
-  case debugTicScreenView
-}
 
 @main
 struct FeaturesAppApp: App {
@@ -17,9 +13,9 @@ struct FeaturesAppApp: App {
   var body: some Scene {
     WindowGroup {
       switch Constants.launchWithScreenEnum {
-      case .production:
+      case .productionLaunchFromSplashScreenView:
         SplashScreenView()
-      case .debugTicScreenView:
+      case .debugLaunchFromTicScreenView:
         TicScreenView(rows: 3)
       }
     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TicFieldView: View {
   let rows: Int
+  weak var delegate: TicCellViewDelegate?
   private var columns: Int {
     rows
   }
@@ -59,7 +60,7 @@ struct TicFieldView: View {
     let positionY = (cellHeight + gridLineWidth) * rowD + cellHeight * 0.5
     return ZStack {
       Color.green.ignoresSafeArea()
-      TicCellView(row: row, column: column, ticCellEnum: .xTicCell, signWidth: signWidth, signHeight: signHeight)
+      TicCellView(row: row, column: column, ticCellEnum: .xTicCell, signWidth: signWidth, signHeight: signHeight, delegate: self.delegate)
     }
     .frame(width: cellWidth, height: cellHeight)
     .position(x: positionX, y: positionY)

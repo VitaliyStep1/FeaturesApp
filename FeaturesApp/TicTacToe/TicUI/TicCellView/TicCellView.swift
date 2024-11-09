@@ -20,11 +20,6 @@ struct TicCellView: View {
   weak var delegate: TicCellViewDelegate?
   var body: some View {
     ZStack {
-      Button("") {
-        buttonWasTapped()
-      }
-      .ignoresSafeArea(.all)
-      
       switch ticCellEnum {
       case .emptyTicCell:
         Spacer()
@@ -35,11 +30,19 @@ struct TicCellView: View {
         TicSignView(signType: .xSign)
           .frame(width: signWidth, height: signHeight)
       }
+      
+      Button(action: {
+        buttonWasTapped()
+      }, label: {
+        Text("")
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+      })
     }
   }
   
+  
   func buttonWasTapped() {
-    print("buttonWasTapped called")
+//    print("buttonWasTapped called row: \(row), column: \(column)")
     delegate?.cellWasTapped(row: row, column: column)
   }
 }

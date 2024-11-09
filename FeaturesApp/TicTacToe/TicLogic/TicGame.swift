@@ -6,29 +6,46 @@
 //
 
 import Foundation
+import Combine
 
-class TicGame {
-  let rows: Int = 3
-  var matrix: [[TicValue]] = [[]]
+class TicGame: TicGameProtocol {
+  private var matrix: TicMatrix<TicSignType>?
+  private let subject = CurrentValueSubject<TicGameState, Never>(.notStarted)
   
-  func startNewGame() {
-    matrix = takeEmptyMatrix(rows: rows)
-  }
-  
-  private func takeEmptyMatrix(rows: Int) -> [[TicValue]] {
-    let columns = rows
-    var matrix:[[TicValue]] = [[]]
-    for row in 0..<rows {
-      var rowValues: [TicValue] = []
-      for column in 0..<columns {
-        rowValues.append(.empty)
-      }
-      matrix.append(rowValues)
+  func startNewGame(rowsOrColumns: Int) {
+    matrix = TicMatrix(n: rowsOrColumns)
+    if let matrix {
+      subject.send(.inProgress(fieldValues: matrix.values))
     }
-    return matrix
   }
   
-  func isGameFinished() -> Bool {
-    return false
+  func takeGameStatePublisher() -> CurrentValueSubject<TicGameState, Never> {
+    return subject
   }
+  
+  func cellWasTapped(row: Int, column: Int) {
+    
+  }
+  
+  
+//  func startNewGame() {
+//    matrix = takeEmptyMatrix(rows: rows)
+//  }
+//  
+//  private func takeEmptyMatrix(rows: Int) -> [[TicValue]] {
+//    let columns = rows
+//    var matrix:[[TicValue]] = [[]]
+//    for row in 0..<rows {
+//      var rowValues: [TicValue] = []
+//      for column in 0..<columns {
+//        rowValues.append(.empty)
+//      }
+//      matrix.append(rowValues)
+//    }
+//    return matrix
+//  }
+//  
+//  func isGameFinished() -> Bool {
+//    return false
+//  }
 }

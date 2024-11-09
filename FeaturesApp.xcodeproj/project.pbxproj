@@ -12,10 +12,16 @@
 		0465F4F52C806E30003DA1E7 /* TicFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F4F42C806E30003DA1E7 /* TicFieldView.swift */; };
 		046681952C89DA1F008EAEC7 /* TicGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681942C89DA1F008EAEC7 /* TicGame.swift */; };
 		046681972C89DA85008EAEC7 /* TicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681962C89DA85008EAEC7 /* TicValue.swift */; };
-		046681992C89E31B008EAEC7 /* SMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681982C89E31B008EAEC7 /* SMatrix.swift */; };
-		0466819D2C89F130008EAEC7 /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466819C2C89F130008EAEC7 /* Coordinate.swift */; };
+		046681992C89E31B008EAEC7 /* TicMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681982C89E31B008EAEC7 /* TicMatrix.swift */; };
+		0466819D2C89F130008EAEC7 /* TicCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466819C2C89F130008EAEC7 /* TicCoordinate.swift */; };
 		046681A02C8A066A008EAEC7 /* Collection_safeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466819F2C8A066A008EAEC7 /* Collection_safeIndex.swift */; };
+		046A4CCC2C8F286B00103F0F /* TicOptionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4CCB2C8F286B00103F0F /* TicOptionsService.swift */; };
+		046A4CCE2C8F287900103F0F /* TicOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4CCD2C8F287900103F0F /* TicOptions.swift */; };
+		046A4CD02C8F2C4D00103F0F /* TicOptionsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4CCF2C8F2C4D00103F0F /* TicOptionsServiceProtocol.swift */; };
+		046A4CD22C8F2CEA00103F0F /* TicGameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4CD12C8F2CEA00103F0F /* TicGameProtocol.swift */; };
+		046A4CD42C8F41FD00103F0F /* TicGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4CD32C8F41FD00103F0F /* TicGameState.swift */; };
 		047F69082C8C67ED005F167A /* TicScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F69072C8C67ED005F167A /* TicScreenViewModel.swift */; };
+		0482A1CB2CBEFB2C008B1202 /* LaunchFromScreenEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482A1CA2CBEFB2A008B1202 /* LaunchFromScreenEnum.swift */; };
 		04863AFF2C7E0D6F00AE4EAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04863AFE2C7E0D6F00AE4EAA /* Constants.swift */; };
 		0489178A2C85D0AA001087F2 /* TicSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048917892C85D0AA001087F2 /* TicSignView.swift */; };
 		0489178C2C85D0D3001087F2 /* TicSignType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489178B2C85D0D3001087F2 /* TicSignType.swift */; };
@@ -34,10 +40,16 @@
 		0465F4F42C806E30003DA1E7 /* TicFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicFieldView.swift; sourceTree = "<group>"; };
 		046681942C89DA1F008EAEC7 /* TicGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicGame.swift; sourceTree = "<group>"; };
 		046681962C89DA85008EAEC7 /* TicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicValue.swift; sourceTree = "<group>"; };
-		046681982C89E31B008EAEC7 /* SMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMatrix.swift; sourceTree = "<group>"; };
-		0466819C2C89F130008EAEC7 /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
+		046681982C89E31B008EAEC7 /* TicMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicMatrix.swift; sourceTree = "<group>"; };
+		0466819C2C89F130008EAEC7 /* TicCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCoordinate.swift; sourceTree = "<group>"; };
 		0466819F2C8A066A008EAEC7 /* Collection_safeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection_safeIndex.swift; sourceTree = "<group>"; };
+		046A4CCB2C8F286B00103F0F /* TicOptionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicOptionsService.swift; sourceTree = "<group>"; };
+		046A4CCD2C8F287900103F0F /* TicOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicOptions.swift; sourceTree = "<group>"; };
+		046A4CCF2C8F2C4D00103F0F /* TicOptionsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicOptionsServiceProtocol.swift; sourceTree = "<group>"; };
+		046A4CD12C8F2CEA00103F0F /* TicGameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicGameProtocol.swift; sourceTree = "<group>"; };
+		046A4CD32C8F41FD00103F0F /* TicGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicGameState.swift; sourceTree = "<group>"; };
 		047F69072C8C67ED005F167A /* TicScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicScreenViewModel.swift; sourceTree = "<group>"; };
+		0482A1CA2CBEFB2A008B1202 /* LaunchFromScreenEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchFromScreenEnum.swift; sourceTree = "<group>"; };
 		04863AFE2C7E0D6F00AE4EAA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		048917892C85D0AA001087F2 /* TicSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicSignView.swift; sourceTree = "<group>"; };
 		0489178B2C85D0D3001087F2 /* TicSignType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicSignType.swift; sourceTree = "<group>"; };
@@ -62,9 +74,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045BD6EE2C908ACF00C897F7 /* TicOptions */ = {
+			isa = PBXGroup;
+			children = (
+				046A4CCF2C8F2C4D00103F0F /* TicOptionsServiceProtocol.swift */,
+				046A4CCB2C8F286B00103F0F /* TicOptionsService.swift */,
+				046A4CCD2C8F287900103F0F /* TicOptions.swift */,
+			);
+			path = TicOptions;
+			sourceTree = "<group>";
+		};
 		0460099D2C8455850088958C /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				047F69092C8C6A04005F167A /* TicScreenView */,
+				045BD6EE2C908ACF00C897F7 /* TicOptions */,
+				046A4CD52C8F56C700103F0F /* TicModel */,
 				046681922C89D9F4008EAEC7 /* TicUI */,
 				046681932C89DA01008EAEC7 /* TicLogic */,
 			);
@@ -77,7 +102,6 @@
 				0460099F2C8455B10088958C /* TicCellView.swift */,
 				046009A12C8455CF0088958C /* TicCellEnum.swift */,
 				048917892C85D0AA001087F2 /* TicSignView.swift */,
-				0489178B2C85D0D3001087F2 /* TicSignType.swift */,
 			);
 			path = TicCellView;
 			sourceTree = "<group>";
@@ -85,8 +109,6 @@
 		046681922C89D9F4008EAEC7 /* TicUI */ = {
 			isa = PBXGroup;
 			children = (
-				04C968D62C78E048001AA3D5 /* TicScreenView.swift */,
-				047F69072C8C67ED005F167A /* TicScreenViewModel.swift */,
 				0465F4F42C806E30003DA1E7 /* TicFieldView.swift */,
 				0489178D2C85F178001087F2 /* TicGridView.swift */,
 				0460099E2C84559A0088958C /* TicCellView */,
@@ -97,10 +119,12 @@
 		046681932C89DA01008EAEC7 /* TicLogic */ = {
 			isa = PBXGroup;
 			children = (
+				046A4CD12C8F2CEA00103F0F /* TicGameProtocol.swift */,
+				046A4CD32C8F41FD00103F0F /* TicGameState.swift */,
 				046681942C89DA1F008EAEC7 /* TicGame.swift */,
 				046681962C89DA85008EAEC7 /* TicValue.swift */,
-				046681982C89E31B008EAEC7 /* SMatrix.swift */,
-				0466819C2C89F130008EAEC7 /* Coordinate.swift */,
+				046681982C89E31B008EAEC7 /* TicMatrix.swift */,
+				0466819C2C89F130008EAEC7 /* TicCoordinate.swift */,
 			);
 			path = TicLogic;
 			sourceTree = "<group>";
@@ -111,6 +135,23 @@
 				0466819F2C8A066A008EAEC7 /* Collection_safeIndex.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		046A4CD52C8F56C700103F0F /* TicModel */ = {
+			isa = PBXGroup;
+			children = (
+				0489178B2C85D0D3001087F2 /* TicSignType.swift */,
+			);
+			path = TicModel;
+			sourceTree = "<group>";
+		};
+		047F69092C8C6A04005F167A /* TicScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				04C968D62C78E048001AA3D5 /* TicScreenView.swift */,
+				047F69072C8C67ED005F167A /* TicScreenViewModel.swift */,
+			);
+			path = TicScreenView;
 			sourceTree = "<group>";
 		};
 		04C968B82C78DBBE001AA3D5 = {
@@ -134,6 +175,7 @@
 			children = (
 				0466819E2C8A0647008EAEC7 /* Utils */,
 				04863AFE2C7E0D6F00AE4EAA /* Constants.swift */,
+				0482A1CA2CBEFB2A008B1202 /* LaunchFromScreenEnum.swift */,
 				04C968C42C78DBBE001AA3D5 /* FeaturesAppApp.swift */,
 				04C968D22C78DCDB001AA3D5 /* SplashScreenView.swift */,
 				04C968D42C78DDDD001AA3D5 /* MainScreenView.swift */,
@@ -225,20 +267,26 @@
 				0465F4F52C806E30003DA1E7 /* TicFieldView.swift in Sources */,
 				046681972C89DA85008EAEC7 /* TicValue.swift in Sources */,
 				0489178E2C85F178001087F2 /* TicGridView.swift in Sources */,
+				0482A1CB2CBEFB2C008B1202 /* LaunchFromScreenEnum.swift in Sources */,
 				0489178C2C85D0D3001087F2 /* TicSignType.swift in Sources */,
 				04C968C52C78DBBE001AA3D5 /* FeaturesAppApp.swift in Sources */,
 				0489178A2C85D0AA001087F2 /* TicSignView.swift in Sources */,
 				046009A22C8455CF0088958C /* TicCellEnum.swift in Sources */,
 				046681A02C8A066A008EAEC7 /* Collection_safeIndex.swift in Sources */,
+				046A4CD42C8F41FD00103F0F /* TicGameState.swift in Sources */,
 				04C968D32C78DCDB001AA3D5 /* SplashScreenView.swift in Sources */,
 				04C968D52C78DDDD001AA3D5 /* MainScreenView.swift in Sources */,
 				04863AFF2C7E0D6F00AE4EAA /* Constants.swift in Sources */,
-				046681992C89E31B008EAEC7 /* SMatrix.swift in Sources */,
+				046681992C89E31B008EAEC7 /* TicMatrix.swift in Sources */,
+				046A4CCE2C8F287900103F0F /* TicOptions.swift in Sources */,
+				046A4CD22C8F2CEA00103F0F /* TicGameProtocol.swift in Sources */,
+				046A4CD02C8F2C4D00103F0F /* TicOptionsServiceProtocol.swift in Sources */,
 				04C968D72C78E048001AA3D5 /* TicScreenView.swift in Sources */,
+				046A4CCC2C8F286B00103F0F /* TicOptionsService.swift in Sources */,
 				046681952C89DA1F008EAEC7 /* TicGame.swift in Sources */,
 				046009A02C8455B20088958C /* TicCellView.swift in Sources */,
 				047F69082C8C67ED005F167A /* TicScreenViewModel.swift in Sources */,
-				0466819D2C89F130008EAEC7 /* Coordinate.swift in Sources */,
+				0466819D2C89F130008EAEC7 /* TicCoordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +428,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,6 +458,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
