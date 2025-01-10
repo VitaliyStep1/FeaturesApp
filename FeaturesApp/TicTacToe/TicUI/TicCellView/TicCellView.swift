@@ -14,7 +14,7 @@ protocol TicCellViewDelegate: AnyObject {
 struct TicCellView: View {
   let row: Int
   let column: Int
-  @State var ticCellEnum: TicCellEnum
+  let ticCellEnum: TicCellEnum
   let signWidth: Double
   let signHeight: Double
   weak var delegate: TicCellViewDelegate?

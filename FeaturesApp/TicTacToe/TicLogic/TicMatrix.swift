@@ -22,9 +22,9 @@ struct TicMatrix<T: Equatable> {
     self.n = n
     
     var values: [[T?]] = []
-    for row in 0..<rows {
+    for _ in 0..<rows {
       var rowValues:[T?] = []
-      for column in 0..<columns {
+      for _ in 0..<columns {
         rowValues.append(nil)
       }
       values.append(rowValues)

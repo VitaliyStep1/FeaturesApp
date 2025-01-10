@@ -11,4 +11,15 @@ enum TicCellEnum {
   case emptyTicCell
   case oTicCell
   case xTicCell
+  
+  init(signType: TicSignType?) {
+    if let signType {
+      switch signType {
+        case .oSign: self = .oTicCell
+        case .xSign: self = .xTicCell
+      }
+    } else {
+      self = .emptyTicCell
+    }
+  }
 }

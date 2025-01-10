@@ -7,8 +7,14 @@
 
 import Foundation
 
-enum TicValue {
-  case empty
+enum TicSign {
   case o
   case x
+  
+  var nextSign: Self {
+    switch self {
+    case .o: return .x
+    case .x: return .o
+    }
+  }
 }

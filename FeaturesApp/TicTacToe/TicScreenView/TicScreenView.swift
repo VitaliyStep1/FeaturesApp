@@ -39,7 +39,7 @@ struct TicScreenView: View {
             }
             Spacer()
           }
-          TicFieldView(rows: 3, delegate: viewModel)
+          TicFieldView(rows: 3, delegate: viewModel, values: viewModel.fieldValues)
             .frame(width: fieldWidth, height: fieldHeight)
           Spacer()
         }

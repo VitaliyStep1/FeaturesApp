@@ -13,18 +13,16 @@ class TicScreenViewModel: ObservableObject, TicCellViewDelegate {
   @Published var winnerSignType: TicSignType?
   @Published var winCoordinates: [[TicCoordinate]]?
   @Published var isGameOver: Bool = false
+  @Published var nextMove: TicSignType? = nil
   private let game: TicGameProtocol = TicGame()
   private let optionsService: TicOptionsServiceProtocol = TicOptionsService()
   private var gameStatePublisher: CurrentValueSubject<TicGameState, Never>?
   
+  var cancellables = Set<AnyCancellable>()
   
   func viewAppeared() {
     subscribeForGameState()
     startNewGame()
-  }
-  
-  func fieldWasTapped(row: Int, column: Int) {
-    
   }
   
   func newGameButtonTapped() {
@@ -43,26 +41,31 @@ class TicScreenViewModel: ObservableObject, TicCellViewDelegate {
       switch gameState {
       case .notStarted:
         self.fieldValues = []
+        self.nextMove = nil
         self.winnerSignType = nil
         self.winCoordinates = nil
         self.isGameOver = false
-      case .inProgress(let fieldValues):
+      case .inProgress(let fieldValues, let nextMove):
         self.fieldValues = fieldValues
+        self.nextMove = nextMove
         self.winnerSignType = nil
         self.winCoordinates = nil
         self.isGameOver = false
       case .win(let fieldValues, let winnerSignType, let winCoordinates):
         self.fieldValues = fieldValues
+        self.nextMove = nil
         self.winnerSignType = winnerSignType
         self.winCoordinates = winCoordinates
         self.isGameOver = true
       case .draw(let fieldValues):
         self.fieldValues = fieldValues
+        self.nextMove = nil
         self.winnerSignType = nil
         self.winCoordinates = nil
         self.isGameOver = true
       }
     }
+    .store(in: &cancellables)
   }
   
   func cellWasTapped(row: Int, column: Int) {

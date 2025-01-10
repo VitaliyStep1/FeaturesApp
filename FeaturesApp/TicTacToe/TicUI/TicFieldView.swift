@@ -10,6 +10,7 @@ import SwiftUI
 struct TicFieldView: View {
   let rows: Int
   weak var delegate: TicCellViewDelegate?
+  let values: [[TicSignType?]]
   private var columns: Int {
     rows
   }
@@ -32,13 +33,15 @@ struct TicFieldView: View {
       let minSizeValue = min(viewWidth, viewHeight)
       let gridLineWidth = minSizeValue / 20.0
       let gridSizeValue = minSizeValue
+      let rows = self.rows
       
       ZStack {
-        TicGridView(rows: 3, sizeValue: gridSizeValue, gridLineWidth: gridLineWidth)
+        TicGridView(rows: rows, sizeValue: gridSizeValue, gridLineWidth: gridLineWidth)
         
         ForEach(0..<rows, id: \.self) { row in
           ForEach(0..<columns, id: \.self) { column in
-            createCell(row: row, column: column, rows: rows, columns: columns, viewWidth: gridSizeValue, viewHeight: gridSizeValue, gridLineWidth: gridLineWidth)
+            let signType = values[safe: row]?[safe: column] ?? nil
+            createCell(row: row, column: column, rows: rows, columns: columns, viewWidth: gridSizeValue, viewHeight: gridSizeValue, gridLineWidth: gridLineWidth, signType: signType)
           }
         }
       }
@@ -46,7 +49,7 @@ struct TicFieldView: View {
     }
   }
   
-  func createCell(row: Int, column: Int, rows: Int, columns: Int, viewWidth: Double, viewHeight: Double, gridLineWidth: Double) -> some View {
+  func createCell(row: Int, column: Int, rows: Int, columns: Int, viewWidth: Double, viewHeight: Double, gridLineWidth: Double, signType: TicSignType?) -> some View {
     let rowsD = Double(rows)
     let columnsD = Double(columns)
     let rowD = Double(row)
@@ -58,9 +61,11 @@ struct TicFieldView: View {
     
     let positionX = (cellWidth + gridLineWidth) * columnD + cellWidth * 0.5
     let positionY = (cellHeight + gridLineWidth) * rowD + cellHeight * 0.5
+    
+    let ticCellEnum = TicCellEnum(signType: signType)
     return ZStack {
       Color.green.ignoresSafeArea()
-      TicCellView(row: row, column: column, ticCellEnum: .xTicCell, signWidth: signWidth, signHeight: signHeight, delegate: self.delegate)
+      TicCellView(row: row, column: column, ticCellEnum: ticCellEnum, signWidth: signWidth, signHeight: signHeight, delegate: self.delegate)
     }
     .frame(width: cellWidth, height: cellHeight)
     .position(x: positionX, y: positionY)
@@ -68,5 +73,5 @@ struct TicFieldView: View {
 }
 
 #Preview {
-  TicFieldView(rows: 3)
+  TicFieldView(rows: 3, values: [[]])
 }
