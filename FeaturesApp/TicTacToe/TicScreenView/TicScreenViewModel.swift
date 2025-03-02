@@ -36,36 +36,36 @@ class TicScreenViewModel: ObservableObject, TicCellViewDelegate {
   }
   
   private func subscribeForGameState() {
-    let gameStatePublisher = game.takeGameStatePublisher()
-    _ = gameStatePublisher.sink { gameState in
-      switch gameState {
-      case .notStarted:
-        self.fieldValues = []
-        self.nextMove = nil
-        self.winnerSignType = nil
-        self.winCoordinates = nil
-        self.isGameOver = false
-      case .inProgress(let fieldValues, let nextMove):
-        self.fieldValues = fieldValues
-        self.nextMove = nextMove
-        self.winnerSignType = nil
-        self.winCoordinates = nil
-        self.isGameOver = false
-      case .win(let fieldValues, let winnerSignType, let winCoordinates):
-        self.fieldValues = fieldValues
-        self.nextMove = nil
-        self.winnerSignType = winnerSignType
-        self.winCoordinates = winCoordinates
-        self.isGameOver = true
-      case .draw(let fieldValues):
-        self.fieldValues = fieldValues
-        self.nextMove = nil
-        self.winnerSignType = nil
-        self.winCoordinates = nil
-        self.isGameOver = true
-      }
-    }
-    .store(in: &cancellables)
+//    let gameStatePublisher = game.takeGameStatePublisher()
+//    _ = gameStatePublisher.sink { gameState in
+//      switch gameState {
+//      case .notStarted:
+//        self.fieldValues = []
+//        self.nextMove = nil
+//        self.winnerSignType = nil
+//        self.winCoordinates = nil
+//        self.isGameOver = false
+//      case .inProgress(let fieldValues, let nextMove):
+//        self.fieldValues = fieldValues
+//        self.nextMove = nextMove
+//        self.winnerSignType = nil
+//        self.winCoordinates = nil
+//        self.isGameOver = false
+//      case .win(let fieldValues, let winnerSignType, let winCoordinates):
+//        self.fieldValues = fieldValues
+//        self.nextMove = nil
+//        self.winnerSignType = winnerSignType
+//        self.winCoordinates = winCoordinates
+//        self.isGameOver = true
+//      case .draw(let fieldValues):
+//        self.fieldValues = fieldValues
+//        self.nextMove = nil
+//        self.winnerSignType = nil
+//        self.winCoordinates = nil
+//        self.isGameOver = true
+//      }
+//    }
+//    .store(in: &cancellables)
   }
   
   func cellWasTapped(row: Int, column: Int) {

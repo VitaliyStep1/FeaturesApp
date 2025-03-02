@@ -49,28 +49,29 @@ class TicGame: TicGameProtocol {
   }
   
   private func calculateNewState(currentState: TicGameState, action: TicAction) -> TicGameState {
-    let newState: TicGameState
-    switch action {
-    case .startNewGame(let n):
-      let newMatrix = takeMatrixForNewGame(n: n)
-      let nextMoveSign = takeNextMoveSignForNewGame()
-      newState = .inProgress(fieldValues: newMatrix.values, nextMove: nextMoveSign)
-    case .clickCell(let row, let column):
-      switch currentState {
-      case .notStarted:
-        newState = currentState
-      case .inProgress(let fieldValues, let nextMove):
-        let isFreeCell = isFreeCell(fieldValues: fieldValues, row: row, column: column)
-        if isFreeCell {
-          
-        } else {
-          newState = currentState
-        }
-      case .finished(let fieldValues, let winner):
-        newState = currentState
-      }
-    }
-    return newState
+//    let newState: TicGameState
+//    switch action {
+//    case .startNewGame(let n):
+//      let newMatrix = takeMatrixForNewGame(n: n)
+//      let nextMoveSign = takeNextMoveSignForNewGame()
+//      newState = .inProgress(fieldValues: newMatrix.values, nextMove: nextMoveSign)
+//    case .clickCell(let row, let column):
+//      switch currentState {
+//      case .notStarted:
+//        newState = currentState
+//      case .inProgress(let fieldValues, let nextMove):
+//        let isFreeCell = isFreeCell(fieldValues: fieldValues, row: row, column: column)
+//        if isFreeCell {
+//          
+//        } else {
+//          newState = currentState
+//        }
+//      case .finished(let fieldValues, let winner):
+//        newState = currentState
+//      }
+//    }
+//    return newState
+    return TicGameState.notStarted
   }
   
 //  private func takeMatrixForNewGame(n: Int) -> TicMatrix<TicSign> {

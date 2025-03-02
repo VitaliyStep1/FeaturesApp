@@ -32,10 +32,10 @@ struct TicMatrix<T: Equatable> {
     self.values = values
   }
   
-  mutating func changeValue(row: Int, column: Int, newValue: T) {
-    if row < n, column < n {
-      values[row][column] = newValue
-    }
+  mutating func changeValue(row: Int, column: Int, value: T) {
+//    if row < n, column < n {
+      values[row][column] = value
+//    }
   }
   
   func takeLinesCoordinatesWithSameValues() -> [[TicCoordinate]] {
