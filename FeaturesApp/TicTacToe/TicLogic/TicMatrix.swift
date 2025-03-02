@@ -33,9 +33,9 @@ struct TicMatrix<T: Equatable> {
   }
   
   mutating func changeValue(row: Int, column: Int, value: T) {
-//    if row < n, column < n {
+    if row < n, column < n {
       values[row][column] = value
-//    }
+    }
   }
   
   func takeLinesCoordinatesWithSameValues() -> [[TicCoordinate]] {
