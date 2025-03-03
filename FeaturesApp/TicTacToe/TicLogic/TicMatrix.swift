@@ -47,10 +47,6 @@ struct TicMatrix<T: Equatable> {
     return linesCoordinates
   }
   
-  func isThereLinesWithOnlyOneTypeOrEmpty() -> Bool {
-    return true
-  }
-  
   private func takePossibleLinesCoordinates(n: Int) -> [[TicCoordinate]] {
     let rows = n
     let columns = n

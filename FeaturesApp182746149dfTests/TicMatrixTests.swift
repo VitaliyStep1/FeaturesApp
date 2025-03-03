@@ -48,4 +48,142 @@ struct TicMatrixTests {
     sut.changeValue(row: 1, column: 5, value: 10)
     sut.changeValue(row: 5, column: 1, value: 10)
   }
+  
+  @Test("TicMatrix takeLinesCoordinatesWithSameValues when empty matrix")
+  func ticMatrix_takeLinesCoordinatesWithSameValues_whenEmpty() {
+    //Arrange
+    let sut = TicMatrix<Int>(n: 3)
+    //Act
+    let linesCoordinates = sut.takeLinesCoordinatesWithSameValues()
+    //Assert
+    #expect(linesCoordinates.count == 0)
+  }
+  
+  @Test("TicMatrix takeLinesCoordinatesWithSameValues when no lines")
+  func ticMatrix_takeLinesCoordinatesWithSameValues_whenNoLines() {
+    //Arrange
+    var sut = TicMatrix<Int>(n: 3)
+    sut.changeValue(row: 0, column: 0, value: 1)
+    sut.changeValue(row: 0, column: 1, value: 2)
+    sut.changeValue(row: 0, column: 2, value: 1)
+    sut.changeValue(row: 1, column: 0, value: 1)
+    sut.changeValue(row: 1, column: 1, value: 2)
+    sut.changeValue(row: 1, column: 2, value: 1)
+    sut.changeValue(row: 2, column: 0, value: 2)
+    sut.changeValue(row: 2, column: 1, value: 1)
+    sut.changeValue(row: 2, column: 2, value: 2)
+    //Act
+    let linesCoordinates = sut.takeLinesCoordinatesWithSameValues()
+    //Assert
+    #expect(linesCoordinates.count == 0)
+  }
+  
+  @Test("TicMatrix takeLinesCoordinatesWithSameValues when one line")
+  func ticMatrix_takeLinesCoordinatesWithSameValues_whenOneLine() {
+    //Arrange
+    var sut = TicMatrix<Int>(n: 3)
+    sut.changeValue(row: 0, column: 0, value: 1)
+    sut.changeValue(row: 0, column: 1, value: 2)
+    sut.changeValue(row: 0, column: 2, value: 1)
+    sut.changeValue(row: 1, column: 0, value: 1)
+    sut.changeValue(row: 1, column: 1, value: 2)
+    sut.changeValue(row: 1, column: 2, value: 1)
+    sut.changeValue(row: 2, column: 0, value: 2)
+    sut.changeValue(row: 2, column: 1, value: 1)
+    sut.changeValue(row: 2, column: 2, value: 1)
+    //Act
+    let linesCoordinates = sut.takeLinesCoordinatesWithSameValues()
+    //Assert
+    #expect(linesCoordinates.count == 1)
+    guard linesCoordinates.count > 0 else {
+      return
+    }
+    #expect(linesCoordinates[0].contains(where: { coordinate in
+      coordinate.row == 0 && coordinate.column == 2
+    }))
+    #expect(linesCoordinates[0].contains(where: { coordinate in
+      coordinate.row == 1 && coordinate.column == 2
+    }))
+    #expect(linesCoordinates[0].contains(where: { coordinate in
+      coordinate.row == 2 && coordinate.column == 2
+    }))
+  }
+  
+  @Test("TicMatrix takeLinesCoordinatesWithSameValues when two lines")
+  func ticMatrix_takeLinesCoordinatesWithSameValues_whenTwoLines() {
+    //Arrange
+    var sut = TicMatrix<Int>(n: 3)
+    sut.changeValue(row: 0, column: 0, value: 1)
+    sut.changeValue(row: 0, column: 1, value: 1)
+    sut.changeValue(row: 0, column: 2, value: 2)
+    sut.changeValue(row: 1, column: 0, value: 1)
+    sut.changeValue(row: 1, column: 1, value: 1)
+    sut.changeValue(row: 1, column: 2, value: 2)
+    sut.changeValue(row: 2, column: 0, value: 2)
+    sut.changeValue(row: 2, column: 1, value: 2)
+    sut.changeValue(row: 2, column: 2, value: 2)
+    //Act
+    let linesCoordinates = sut.takeLinesCoordinatesWithSameValues()
+    //Assert
+    #expect(linesCoordinates.count == 2)
+    guard linesCoordinates.count > 0 else {
+      return
+    }
+    let allCoordinates = linesCoordinates.flatMap(\.self)
+    
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 0 && coordinate.column == 2
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 1 && coordinate.column == 2
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 2 && coordinate.column == 2
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 2 && coordinate.column == 0
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 2 && coordinate.column == 1
+    }))
+  }
+  
+  @Test("TicMatrix takeLinesCoordinatesWithSameValues when two lines diagonal")
+  func ticMatrix_takeLinesCoordinatesWithSameValues_whenTwoLinesDiagonal() {
+    //Arrange
+    var sut = TicMatrix<Int>(n: 3)
+    sut.changeValue(row: 0, column: 0, value: 1)
+    sut.changeValue(row: 0, column: 1, value: 2)
+    sut.changeValue(row: 0, column: 2, value: 1)
+    sut.changeValue(row: 1, column: 0, value: 2)
+    sut.changeValue(row: 1, column: 1, value: 1)
+    sut.changeValue(row: 1, column: 2, value: 2)
+    sut.changeValue(row: 2, column: 0, value: 1)
+    sut.changeValue(row: 2, column: 1, value: 2)
+    sut.changeValue(row: 2, column: 2, value: 1)
+    //Act
+    let linesCoordinates = sut.takeLinesCoordinatesWithSameValues()
+    //Assert
+    #expect(linesCoordinates.count == 2)
+    guard linesCoordinates.count > 0 else {
+      return
+    }
+    let allCoordinates = linesCoordinates.flatMap(\.self)
+    
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 0 && coordinate.column == 0
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 0 && coordinate.column == 2
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 1 && coordinate.column == 1
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 2 && coordinate.column == 0
+    }))
+    #expect(allCoordinates.contains(where: { coordinate in
+      coordinate.row == 2 && coordinate.column == 2
+    }))
+  }
 }
