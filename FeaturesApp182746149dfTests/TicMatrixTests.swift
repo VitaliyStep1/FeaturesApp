@@ -186,4 +186,16 @@ struct TicMatrixTests {
       coordinate.row == 2 && coordinate.column == 2
     }))
   }
+  
+  @Test("TicMatrix isEmptyCell")
+  func tickMatrix_isEmptyCell() {
+    var sut = TicMatrix<Int>(n: 3)
+    let row = 0
+    let column = 0
+    let isEmpty1 = sut.isEmptyCell(row: row, column: column)
+    #expect(isEmpty1)
+    sut.changeValue(row: row, column: column, value: 1)
+    let isEmpty2 = sut.isEmptyCell(row: row, column: column)
+    #expect(!isEmpty2)
+  }
 }

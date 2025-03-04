@@ -11,7 +11,7 @@
 		046009A22C8455CF0088958C /* TicCellEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046009A12C8455CF0088958C /* TicCellEnum.swift */; };
 		0465F4F52C806E30003DA1E7 /* TicFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0465F4F42C806E30003DA1E7 /* TicFieldView.swift */; };
 		046681952C89DA1F008EAEC7 /* TicGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681942C89DA1F008EAEC7 /* TicGame.swift */; };
-		046681972C89DA85008EAEC7 /* TicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681962C89DA85008EAEC7 /* TicValue.swift */; };
+		046681972C89DA85008EAEC7 /* TicSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681962C89DA85008EAEC7 /* TicSign.swift */; };
 		046681992C89E31B008EAEC7 /* TicMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046681982C89E31B008EAEC7 /* TicMatrix.swift */; };
 		0466819D2C89F130008EAEC7 /* TicCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466819C2C89F130008EAEC7 /* TicCoordinate.swift */; };
 		046681A02C8A066A008EAEC7 /* Collection_safeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0466819F2C8A066A008EAEC7 /* Collection_safeIndex.swift */; };
@@ -51,7 +51,7 @@
 		046009A12C8455CF0088958C /* TicCellEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCellEnum.swift; sourceTree = "<group>"; };
 		0465F4F42C806E30003DA1E7 /* TicFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicFieldView.swift; sourceTree = "<group>"; };
 		046681942C89DA1F008EAEC7 /* TicGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicGame.swift; sourceTree = "<group>"; };
-		046681962C89DA85008EAEC7 /* TicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicValue.swift; sourceTree = "<group>"; };
+		046681962C89DA85008EAEC7 /* TicSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicSign.swift; sourceTree = "<group>"; };
 		046681982C89E31B008EAEC7 /* TicMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicMatrix.swift; sourceTree = "<group>"; };
 		0466819C2C89F130008EAEC7 /* TicCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicCoordinate.swift; sourceTree = "<group>"; };
 		0466819F2C8A066A008EAEC7 /* Collection_safeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection_safeIndex.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				046A4CD32C8F41FD00103F0F /* TicGameState.swift */,
 				0499FD442CE25E7200AB75F5 /* TicWinner.swift */,
 				0499FD462CE261A900AB75F5 /* TicAction.swift */,
-				046681962C89DA85008EAEC7 /* TicValue.swift */,
+				046681962C89DA85008EAEC7 /* TicSign.swift */,
 				0466819C2C89F130008EAEC7 /* TicCoordinate.swift */,
 			);
 			path = Model;
@@ -353,7 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0465F4F52C806E30003DA1E7 /* TicFieldView.swift in Sources */,
-				046681972C89DA85008EAEC7 /* TicValue.swift in Sources */,
+				046681972C89DA85008EAEC7 /* TicSign.swift in Sources */,
 				0489178E2C85F178001087F2 /* TicGridView.swift in Sources */,
 				0482A1CB2CBEFB2C008B1202 /* LaunchFromScreenEnum.swift in Sources */,
 				0489178C2C85D0D3001087F2 /* TicSignType.swift in Sources */,

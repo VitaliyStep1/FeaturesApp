@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol TicGameProtocol {
-  func startNewGame(rowsOrColumns: Int)
+  func startNewGame(rowsOrColumns: Int, firstMove: TicSign)
   func takeGameStatePublisher() -> CurrentValueSubject<TicGameState, Never>
   func cellWasTapped(row: Int, column: Int)
 }

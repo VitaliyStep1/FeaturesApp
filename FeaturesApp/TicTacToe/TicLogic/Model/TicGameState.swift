@@ -9,6 +9,6 @@ import Foundation
 
 enum TicGameState {
   case notStarted
-  case inProgress(fieldValues: [[TicSignType?]], nextMove: TicSignType)
-  case finished(fieldValues: [[TicSignType?]], winner: TicWinner)
+  case inProgress(matrix: TicMatrix<TicSign>, nextMove: TicSign)
+  case finished(matrix: TicMatrix<TicSign>, winner: TicWinner)
 }

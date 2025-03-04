@@ -9,11 +9,10 @@ import Foundation
 import Combine
 
 class TicGame: TicGameProtocol {
-  private let firstMove: TicSign = .o
-  private var matrix: TicMatrix<TicSign>?
+  private let firstMoveSign: TicSign = .o
   private let subject = CurrentValueSubject<TicGameState, Never>(.notStarted)
   
-  func startNewGame(rowsOrColumns: Int) {
+  func startNewGame(rowsOrColumns: Int, firstMove: TicSign) {
     let gameState = calculateNewState(currentState: subject.value, action: .startNewGame(n: rowsOrColumns))
     subject.send(gameState)
   }
@@ -25,23 +24,6 @@ class TicGame: TicGameProtocol {
   func cellWasTapped(row: Int, column: Int) {
     let gameState = calculateNewState(currentState: subject.value, action: .clickCell(row: row, column: column))
     subject.send(gameState)
-    
-//    let currentValue = matrix?.values[row][column]
-//    if currentValue == nil {
-//      let gameState = subject.value
-//      
-//      if case let .inProgress(fieldValues, nextMove) = gameState {
-//        self.matrix?.changeValue(row: row, column: column, newValue: nextMove)
-//        
-//        let isGameFinished = isGameFinished(matrix: self.matrix)
-//        if isGameFinished {
-//          
-//        } else {
-//          let nextSign = nextMove.nextSign
-//          subject.send(.inProgress(fieldValues: matrix?.values ?? [], nextMove: nextSign))
-//        }
-//      }
-//    }
   }
   
   private func isGameFinished(matrix: TicMatrix<TicSign>?) -> Bool {
@@ -49,80 +31,57 @@ class TicGame: TicGameProtocol {
   }
   
   private func calculateNewState(currentState: TicGameState, action: TicAction) -> TicGameState {
-//    let newState: TicGameState
-//    switch action {
-//    case .startNewGame(let n):
-//      let newMatrix = takeMatrixForNewGame(n: n)
-//      let nextMoveSign = takeNextMoveSignForNewGame()
-//      newState = .inProgress(fieldValues: newMatrix.values, nextMove: nextMoveSign)
-//    case .clickCell(let row, let column):
-//      switch currentState {
-//      case .notStarted:
-//        newState = currentState
-//      case .inProgress(let fieldValues, let nextMove):
-//        let isFreeCell = isFreeCell(fieldValues: fieldValues, row: row, column: column)
-//        if isFreeCell {
-//          
-//        } else {
-//          newState = currentState
-//        }
-//      case .finished(let fieldValues, let winner):
-//        newState = currentState
-//      }
-//    }
-//    return newState
-    return TicGameState.notStarted
+    let newState: TicGameState
+    switch action {
+    case .startNewGame(let n):
+      let newMatrix = takeMatrixForNewGame(n: n)
+      let nextMoveSign = takeNextMoveSignForNewGame()
+      newState = .inProgress(matrix: newMatrix, nextMove: nextMoveSign)
+    case .clickCell(let row, let column):
+      newState = calculateNewStateForClickCellAction(currentState: currentState, row: row, column: column)
+    }
+    return newState
   }
   
-//  private func takeMatrixForNewGame(n: Int) -> TicMatrix<TicSign> {
-//    return TicMatrix(n: n)
-//  }
-  
-  private func takeFieldValuesForNewGame(n: Int) -> [[TicSign?]] {
-    let rows = n
-    let columns = n
-    var values: [[TicSign?]] = []
-    for _ in 0..<rows {
-      var rowValues:[TicSign?] = []
-      for _ in 0..<columns {
-        rowValues.append(nil)
+  private func calculateNewStateForClickCellAction(currentState: TicGameState, row: Int, column: Int) -> TicGameState {
+    let newState: TicGameState
+    switch currentState {
+    case .notStarted:
+      newState = currentState
+    case .inProgress(let matrix, let nextMove):
+      let isFreeCell = matrix.isEmptyCell(row: row, column: column)
+      if isFreeCell {
+        var newMatrix = matrix
+        newMatrix.changeValue(row: row, column: column, value: nextMove)
+        
+        let linesCoordinatesWithSameValues = newMatrix.takeLinesCoordinatesWithSameValues()
+        if linesCoordinatesWithSameValues.count > 0 {
+          let winner = TicWinner.won(sign: nextMove, winCoordinates: linesCoordinatesWithSameValues)
+          newState = .finished(matrix: newMatrix, winner: winner)
+        } else {
+          let isAnyEmptyCell = newMatrix.isAnyEmptyCell()
+          if !isAnyEmptyCell {
+            let winner: TicWinner = .draw
+            newState = .finished(matrix: newMatrix, winner: winner)
+          } else {
+            let newNextMove = nextMove.nextSign
+            newState = .inProgress(matrix: newMatrix, nextMove: newNextMove)
+          }
+        }
+      } else {
+        newState = currentState
       }
-      values.append(rowValues)
+    case .finished(_, _):
+      newState = currentState
     }
-    return values
+    return newState
+  }
+  
+  private func takeMatrixForNewGame(n: Int) -> TicMatrix<TicSign> {
+    return TicMatrix(n: n)
   }
   
   private func takeNextMoveSignForNewGame() -> TicSign {
-    return firstMove
+    return firstMoveSign
   }
-  
-  private func isFreeCell(fieldValues: [[TicSign?]], row: Int, column: Int) -> Bool {
-    if fieldValues.count > row, fieldValues[row].count > column {
-      return fieldValues[row][column] == nil
-    } else {
-      return false
-    }
-  }
-  
-  
-//  func startNewGame() {
-//    matrix = takeEmptyMatrix(rows: rows)
-//  }
-//  
-//  private func takeEmptyMatrix(rows: Int) -> [[TicValue]] {
-//    let columns = rows
-//    var matrix:[[TicValue]] = [[]]
-//    for row in 0..<rows {
-//      var rowValues: [TicValue] = []
-//      for column in 0..<columns {
-//        rowValues.append(.empty)
-//      }
-//      matrix.append(rowValues)
-//    }
-//    return matrix
-//  }
-//  
-//  func isGameFinished() -> Bool {
-//    return false
-//  }
 }

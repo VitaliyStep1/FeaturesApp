@@ -33,8 +33,10 @@ struct TicMatrix<T: Equatable> {
   }
   
   mutating func changeValue(row: Int, column: Int, value: T) {
-    if row < n, column < n {
-      values[row][column] = value
+    var newValues = self.values
+    if newValues.indices.contains(row), newValues[row].indices.contains(column) {
+      newValues[row][column] = value
+      values = newValues
     }
   }
   
@@ -45,6 +47,22 @@ struct TicMatrix<T: Equatable> {
       isLineContainsOnlySameValues(lineCoordinates: lineCoordinates, values: values)
     }
     return linesCoordinates
+  }
+  
+  func isEmptyCell(row: Int, column: Int) -> Bool {
+    let value = values[safe: row]?[safe: column] ?? nil
+    return value == nil
+  }
+  
+  func isAnyEmptyCell() -> Bool { // Test
+    for row in 0..<values.count {
+      for column in 0..<values[row].count {
+        if values[row][column] == nil {
+          return true
+        }
+      }
+    }
+    return false
   }
   
   private func takePossibleLinesCoordinates(n: Int) -> [[TicCoordinate]] {

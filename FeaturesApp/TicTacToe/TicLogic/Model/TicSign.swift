@@ -1,5 +1,5 @@
 //
-//  TicValue.swift
+//  TicSign.swift
 //  FeaturesApp
 //
 //  Created by Vitaliy Stepanenko on 05.09.2024.

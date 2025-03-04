@@ -32,7 +32,7 @@ class TicScreenViewModel: ObservableObject, TicCellViewDelegate {
   private func startNewGame() {
     let ticOptions = optionsService.takeOptions()
     let rowsOrColumns = ticOptions.rowsOrColumns
-    game.startNewGame(rowsOrColumns: rowsOrColumns)
+    game.startNewGame(rowsOrColumns: rowsOrColumns, firstMove: .o)
   }
   
   private func subscribeForGameState() {
